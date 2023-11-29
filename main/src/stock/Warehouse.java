@@ -31,6 +31,10 @@ public class Warehouse {
                 '}';
     }
 
+   /* public void Warehouse (int warehouseId) {
+        stock.get(getId());
+    }*/
+
     //Method to get Occupancy
     public int occupancy() {
         return stock.size();
