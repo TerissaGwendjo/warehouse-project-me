@@ -1,16 +1,18 @@
 package stock;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Item {
     private String state;
     private String category;
-    private Date dateOfStock;
+    private String dateOfStock;
     private int warehouse;
 
 
-    public Item(String state, String category, int warehouse, Date dateOfStock) {
+    public Item(String state, String category, String dateOfStock, int warehouse ) {
+        //DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
         this.state = state;
         this.category = category;
         this.warehouse = warehouse;
@@ -41,11 +43,11 @@ public class Item {
         this.warehouse = warehouse;
     }
 
-    public Date getDateOfStock() {
+    public String getDateOfStock() {
         return dateOfStock;
     }
 
-    public void setDateOfStock(Date dateOfStock) {
+    public void setDateOfStock(String dateOfStock) {
         this.dateOfStock = dateOfStock;
     }
 
