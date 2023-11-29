@@ -1,12 +1,13 @@
 package stock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouse {
     private int id;
-    private List <Integer> stock;
+    private List <Item> stock;
 
-    public Warehouse(int id, List<Integer> stock) {
+    public Warehouse(int id, List<Item> stock) {
         this.id = id;
         this.stock = stock;
     }
@@ -16,10 +17,10 @@ public class Warehouse {
     public void setId(int id) {
         this.id = id;
     }
-    public List<Integer> getStock() {
+    public List<Item> getStock() {
         return stock;
     }
-    public void setStock(List<Integer> stock) {
+    public void setStock(List<Item> stock) {
         this.stock = stock;
     }
     @Override
@@ -29,4 +30,25 @@ public class Warehouse {
                 ", stock=" + stock +
                 '}';
     }
+
+    //Method to get Occupancy
+    public int occupancy() {
+        return stock.size();
+    }
+    //Method to add an item to the stock
+    public void addItem (Item item) {
+        stock.add(item);
+    }
+    //Method to search for items based on a search term
+    public List<Item> search(String searchTerm) {
+        List<Item> matchingItems = new ArrayList<>();
+        for (Item item:stock) {
+            if (item.getCategory().toLowerCase().contains(searchTerm.toLowerCase())) {
+                matchingItems.add(item);
+            }
+        }
+        return matchingItems;
+    }
+
+
 }

@@ -2,30 +2,31 @@ package personnel;
 
 public class User {
     private String user_name;
-    private String password;
+    private boolean isAuthenticated;
 
-    public User(String name, String password) {
-        this.user_name = name;
-        this.password = password;
+    public User(String user_name, boolean isAuthenticated) {
+        this.user_name = user_name;
+        this.isAuthenticated = isAuthenticated;
     }
+
     public String getUser_name() {
         return user_name;
     }
     public void setUser_name(String user_name) {
         this.user_name = user_name;
     }
-    public String getPassword() {
-        return password;
+    public boolean isAuthenticated() {
+        return isAuthenticated;
     }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAuthenticated(boolean authenticated) {
+        isAuthenticated = authenticated;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "name='" + user_name + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + isAuthenticated + '\'' +
                 '}';
     }
 }

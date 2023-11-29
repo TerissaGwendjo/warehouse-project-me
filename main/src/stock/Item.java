@@ -1,60 +1,61 @@
 package stock;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Item {
-    private String condition;
-    private String name;
-    private int quantity;
-    private Date manufacturingDate;
+    private String state;
+    private String category;
+    private Date dateOfStock;
+    private int warehouse;
 
 
-    public Item(String condition, String name, int quantity, Date manufacturingDate) {
-        this.condition = condition;
-        this.name = name;
-        this.quantity = quantity;
-        this.manufacturingDate = manufacturingDate;
+    public Item(String state, String category, int warehouse, Date dateOfStock) {
+        this.state = state;
+        this.category = category;
+        this.warehouse = warehouse;
+        this.dateOfStock = dateOfStock;
     }
 
-    public String getCondition() {
-        return condition;
+    public String getState() {
+        return state;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getName() {
-        return name;
+    public String getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getWarehouse() {
+        return warehouse;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setWarehouse(int warehouse) {
+        this.warehouse = warehouse;
     }
 
-    public Date getManufacturingDate() {
-        return manufacturingDate;
+    public Date getDateOfStock() {
+        return dateOfStock;
     }
 
-    public void setManufacturingDate(Date manufacturingDate) {
-        this.manufacturingDate = manufacturingDate;
+    public void setDateOfStock(Date dateOfStock) {
+        this.dateOfStock = dateOfStock;
     }
 
     @Override
     public String toString() {
         return "Item{" +
-                "condition='" + condition + '\'' +
-                ", name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", manufacturingDate=" + manufacturingDate +
+                "condition='" + state + '\'' +
+                ", name='" + category + '\'' +
+                ", quantity=" + warehouse +
+                ", manufacturingDate=" + dateOfStock +
                 '}';
     }
 }

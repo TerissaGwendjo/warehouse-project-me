@@ -1,39 +1,39 @@
 package personnel;
 
+import java.util.List;
+
 public class Employee extends User {
     //since Employee is a User, we need more information to differentiate them from other users.
-    private String employeeId;
-    private String jobTitle;
+    private String password;
+    private List<Employee> headOf;
 
     //Constructor
-    public Employee(String name, String password, String employeeId, String jobTitle) {
-        super(name, password);
-        this.employeeId = employeeId;
-        this.jobTitle = jobTitle;
+
+    public Employee(String user_name, boolean isAuthenticated, String password, List<Employee> headOf) {
+        super(user_name, isAuthenticated);
+        this.password = password;
+        this.headOf = headOf;
     }
 
     //Getters and setters
-    public String getEmployeeId() {
-        return employeeId;
+    public String getPassword() {
+        return password;
     }
-    public String getJobTitle() {
-        return jobTitle;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public List<Employee> getHeadOf() {
+        return headOf;
     }
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setHeadOf(List<Employee> headOf) {
+        this.headOf = headOf;
     }
-
 
     @Override
     public String toString() {
-        return "Employee {name=" + getUser_name() + ", password=" + getPassword() +
-                "employeeId='" + employeeId + '\'' +
-                ", jobTitle='" + jobTitle + '\'' +
+        return "Employee {name=" + getUser_name() +
+                "password='" + password + '\'' +
+                ", headOf=" + headOf +
                 '}';
     }
 }
