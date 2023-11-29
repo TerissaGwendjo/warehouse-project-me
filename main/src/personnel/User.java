@@ -1,7 +1,7 @@
 package personnel;
 
 public class User {
-    private String user_name;
+    protected String user_name;
     private boolean isAuthenticated;
 
     public User(String user_name, boolean isAuthenticated) {
