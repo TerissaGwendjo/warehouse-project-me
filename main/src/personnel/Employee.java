@@ -8,11 +8,12 @@ public class Employee extends User {
     private List<Employee> headOf;
 
     //Constructor
-
     public Employee(String user_name, boolean isAuthenticated, String password, List<Employee> headOf) {
-        super(user_name, isAuthenticated);
+        super(user_name, isAuthenticated); //calls the constructor of the parent class
         this.password = password;
-        this.headOf = headOf;
+        this.headOf = (headOf != null) ? headOf : List.of();
+        //If headOf is not null, this.headOf is assigned the value of headOf.
+        //If headOf is null, this.headOf is assigned an empty, immutable list created using List.of().
     }
 
     //Getters and setters
@@ -35,5 +36,34 @@ public class Employee extends User {
                 "password='" + password + '\'' +
                 ", headOf=" + headOf +
                 '}';
+    }
+
+    @Override
+    public boolean authenticate(String password) {
+        //return super.authenticate(password);
+        return this.password.equals(password);
+    }
+
+    public void order (String item, int amount) {
+        System.out.println("Order placed: Item = " + item + ", Amount = " + amount);
+    }
+
+    @Override
+    public void greet() {
+        //super.greet(); // this is a way of caling the parent class to take an action but we want something else
+        System.out.println("Hello, " + getUser_name() + "!");
+        System.out.println("If you experience a problem with the system,");
+        System.out.println("please contact technical support.");
+    }
+
+    @Override
+    public void bye(List<String> actions) {
+        super.bye(actions); //call the parent class to print the standard "thank you" message
+
+        //Print the summary of actions taken during the session
+        System.out.println("Summary of Actions:");
+        for (String action:actions) {
+            System.out.println(action);
+        }
     }
 }
