@@ -23,6 +23,9 @@ public class Test {
         stockItems1.add(item1);
         stockItems1.add(item2);
 
+        //OR DO IT THIS WAY:
+        //List<Item>stockItems1 = List.of(item1,item2);
+
         List<Item> stockItems2 = new ArrayList<>();
         stockItems2.add(item3);
         stockItems2.add(item4);
@@ -48,16 +51,29 @@ public class Test {
         Warehouse warehouse4 = new Warehouse(4,stockItems4);
         Warehouse warehouse5 = new Warehouse(5,stockItems5);
 
-
+        // Create a list of warehouses
         List<Warehouse> warehouseList = new ArrayList<>();
         warehouseList.add(warehouse1);
         warehouseList.add(warehouse2);
         warehouseList.add(warehouse3);
         warehouseList.add(warehouse4);
         warehouseList.add(warehouse5);
-        System.out.println(warehouseList);
+        //OR DO IT THIS WAY:
+        //List<Warehouse>warehouseList = List.of(warehouse1,warehouse2,warehouse3,warehouse4,warehouse5);
 
-        System.out.println(warehouse1.occupancy());
+        //Print details of each warehouse
+        for (Warehouse warehouse:warehouseList) {
+            System.out.println("Warehouse ID: " + warehouse.getWarehouseId());
+            System.out.println("Stock Items:");
+            for (Item item:warehouse.getStock()) {
+                System.out.println("  State: " + item.getState());
+                System.out.println("  Category: " + item.getCategory());
+                System.out.println("  Date of Stock: " + item.getDateOfStock());
+                System.out.println("  Warehouse: " + item.getWarehouse());
+            }
+            System.out.println("--------------------------------------------------------------");
+
+        }
 
         /* //perform some Operations
         warehouse1.setWarehouseId(2); // change warehouse1 ID
@@ -66,6 +82,7 @@ public class Test {
 
           warehouse1.addItem(item5); // calling addItem method from Warehouse class
         warehouse1.getStock().add(item6); //Calling getStock method to add items
+        System.out.println(warehouse1.occupancy());
         */
 
 
