@@ -25,10 +25,18 @@ public class Warehouse {
     }
     @Override
     public String toString() {
-        return "\n\nWarehouse{" +
-                "Warehouse ID:" + warehouseId +
-                "\nstock: " + stock +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n\nWarehouse \n");
+        stringBuilder.append("    Warehouse ID: ").append(warehouseId).append("\n");
+        stringBuilder.append("    Stock:\n");
+
+        for (Item item : stock) {
+            stringBuilder.append("        ").append(item).append("\n");
+        }
+
+        stringBuilder.append("--------------------------------------------------------");
+
+        return stringBuilder.toString();
     }
 
    /* public void Warehouse (int warehouseId) {

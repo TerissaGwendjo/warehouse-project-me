@@ -67,7 +67,7 @@ public class Test1 {
             System.out.println("Warehouse ID: " + warehouse.getWarehouseId());
             System.out.println("Stock Items:");
             for (Item item:warehouse.getStock()) {                                   //    This part calls the getStock() method on the warehouse object. Presumably, the getStock() method returns a List<Item> representing the stock of items in the warehouse.
-                System.out.println("  State: " + item.getState());
+                System.out.println("  State: " + item.getState());                // In each iteration of the loop, item will be assigned the next element from the collection returned by warehouse.getStock().
                 System.out.println("  Category: " + item.getCategory()); //Item item: This part declares a variable item of type Item. In each iteration of the loop, item will be assigned the next element from the collection returned by warehouse.getStock()
                 System.out.println("  Date of Stock: " + item.getDateOfStock());
                 System.out.println("  Warehouse: " + item.getWarehouse());
