@@ -53,11 +53,11 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "condition='" + state + '\'' +
-                ", name='" + category + '\'' +
-                ", quantity=" + warehouse +
-                ", manufacturingDate=" + dateOfStock +
-                '}';
+        return "\nItem{" +
+                "\nstate='" + state + '\'' +
+                " \ncategory='" + category + '\'' +
+                " \ndateOfStock='" + dateOfStock + '\'' +
+                " \nwarehouse=" + warehouse +
+                '}' + '\n' ;
     }
 }

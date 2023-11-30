@@ -25,9 +25,9 @@ public class Warehouse {
     }
     @Override
     public String toString() {
-        return "Warehouse{" +
-                "id=" + warehouseId +
-                ", stock=" + stock +
+        return "\nWarehouse{" +
+                "\nid=" + warehouseId +
+                "\nstock: " + stock +
                 '}';
     }
 
