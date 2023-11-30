@@ -28,27 +28,48 @@ public class Test {
         stockItems2.add(item4);
         //System.out.println(stockItems2);
 
+        List<Item> stockItems3 = new ArrayList<>();
+        stockItems3.add(item5);
+        stockItems3.add(item6);
+
+        List<Item> stockItems4 = new ArrayList<>();
+        stockItems4.add(item7);
+        stockItems4.add(item8);
+
+        List<Item> stockItems5 = new ArrayList<>();
+        stockItems5.add(item9);
+        stockItems5.add(item10);
+
 
         //Create a Warehouse
         Warehouse warehouse1 = new Warehouse(1,stockItems1);
         Warehouse warehouse2 = new Warehouse(2,stockItems2);
+        Warehouse warehouse3 = new Warehouse(3,stockItems3);
+        Warehouse warehouse4 = new Warehouse(4,stockItems4);
+        Warehouse warehouse5 = new Warehouse(5,stockItems5);
+
+
         List<Warehouse> warehouseList = new ArrayList<>();
         warehouseList.add(warehouse1);
         warehouseList.add(warehouse2);
-        //System.out.println("This is the initial State of the Warehouse:");
-        //System.out.println(warehouseList);
-        warehouse1.addItem(item5);
-        System.out.println(warehouse1);
-        System.out.println();
-        System.out.println();
-        warehouse1.getStock().add(item6);
-        System.out.println(warehouse1);
+        warehouseList.add(warehouse3);
+        warehouseList.add(warehouse4);
+        warehouseList.add(warehouse5);
+        System.out.println(warehouseList);
 
-       /* //perform some Operations
+        System.out.println(warehouse1.occupancy());
+
+        /* //perform some Operations
         warehouse1.setWarehouseId(2); // change warehouse1 ID
         //System.out.println("Updated warehouse1 ID: " + warehouse1.getId());
         //System.out.println(warehouse1);
+
+          warehouse1.addItem(item5); // calling addItem method from Warehouse class
+        warehouse1.getStock().add(item6); //Calling getStock method to add items
         */
+
+
+
 
     }
 }
