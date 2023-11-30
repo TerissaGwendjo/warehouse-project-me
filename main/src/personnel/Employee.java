@@ -50,7 +50,7 @@ public class Employee extends User {
 
     @Override
     public void greet() {
-        //super.greet(); // this is a way of caling the parent class to take an action but we want something else
+        //super.greet(); // this is a way of calling the parent class to take an action but we want something else
         System.out.println("Hello, " + getUser_name() + "!");
         System.out.println("If you experience a problem with the system,");
         System.out.println("please contact technical support.");

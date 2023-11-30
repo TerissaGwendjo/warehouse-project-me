@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouse {
-    private int id;
+    private int warehouseId;
     private List <Item> stock;
 
-    public Warehouse(int id, List<Item> stock) {
-        this.id = id;
+    public Warehouse(int warehouseId, List<Item> stock) {
+        this.warehouseId = warehouseId;
         this.stock = stock;
     }
-    public int getId() {
-        return id;
+    public int getWarehouseId() {
+        return warehouseId;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setWarehouseId(int warehouseId) {
+        this.warehouseId = warehouseId;
     }
     public List<Item> getStock() {
         return stock;
@@ -26,7 +26,7 @@ public class Warehouse {
     @Override
     public String toString() {
         return "Warehouse{" +
-                "id=" + id +
+                "id=" + warehouseId +
                 ", stock=" + stock +
                 '}';
     }
