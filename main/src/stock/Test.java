@@ -10,7 +10,7 @@ public class Test {
 
         //Create a LIst of items
         List<Item> stockItems = new ArrayList<>();
-        for (int i=0; i<1;i++) {
+        for (int i=0; i<9;i++) {
             System.out.println("Enter details for Item " + (i + 1) + ":");
             System.out.println("State (New/Used): ");
             String state = scanner.next();
