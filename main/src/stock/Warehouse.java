@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Warehouse {
     private int warehouseId;
-    private List <Item> stock;
+    private static List <Item> stock;
 
     public Warehouse(int warehouseId, List<Item> stock) {
         this.warehouseId = warehouseId;
@@ -48,7 +48,7 @@ public class Warehouse {
         return stock.size();
     }
     //Method to add an item to the stock
-    public void addItem (Item item) {
+    public static void addItem(Item item) {
         stock.add(item);
     }
     //Method to search for items based on a search term
@@ -63,4 +63,25 @@ public class Warehouse {
     }
 
 
+    //Print details of each warehouse
+    public static void printWarehouseDetails(List<Warehouse> warehouseList) {
+        for (Warehouse warehouse : warehouseList) {
+            System.out.println("Warehouse ID: " + warehouse.getWarehouseId());
+            System.out.println("Stock Items:");
+
+            for (Item item : warehouse.getStock()) {
+                System.out.println("  State: " + item.getState());
+                System.out.println("  Category: " + item.getCategory());
+                System.out.println("  Warehouse: " + item.getWarehouse());
+                System.out.println("------------------------");
+            }
+
+            System.out.println("--------------------------------------------------------------");
+        }
+    }
+
+
+
+
 }
+

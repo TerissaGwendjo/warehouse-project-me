@@ -44,9 +44,6 @@ public class Employee extends User {
         return this.password.equals(password);
     }
 
-    public void order (String item, int amount) {
-        System.out.println("Order placed: Item = " + item + ", Amount = " + amount);
-    }
 
     @Override
     public void greet() {

@@ -4,34 +4,34 @@ import java.util.List;
 
 public class User {
     protected String user_name;
-    private boolean isAuthenticated;
+    private String password;
 
-    // If the provided userName is empty, set the name to "Anonymous"
-    public User(String user_name, boolean isAuthenticated) {
-        this.user_name = user_name.isEmpty() ? "Anonymous" : user_name;
-        //The above code checks if the provided username is an empty string and assigns
-        // the String " Anonymous " to it. Otherwise, it assigns the provided 'username'
-        this.isAuthenticated = false;
+    public User(String user_name, String password) {
+        this.user_name = user_name;
+        this.password = password;
     }
 
     public String getUser_name() {
         return user_name;
     }
+
     public void setUser_name(String user_name) {
         this.user_name = user_name;
     }
-    public boolean isAuthenticated() {
-        return isAuthenticated;
+
+    public String getPassword() {
+        return password;
     }
-    public void setAuthenticated(boolean authenticated) {
-        isAuthenticated = authenticated;
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "name='" + user_name + '\'' +
-                ", password='" + isAuthenticated + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -45,6 +45,10 @@ public class User {
         return this.user_name.equals(checkName);
     }
 
+    public void order (String item, int amount) {
+        System.out.println("Order placed: Item = " + item + ", Amount = " + amount);
+    }
+
     public void greet() {
         System.out.println("Hello, " + user_name + "!");
         System.out.println("Welcome to our Warehouse Database.");
@@ -56,4 +60,5 @@ public class User {
         // For a Standard User, print out a thank you message
         System.out.println("Thank you for using the Warehouse Database");
     }
+
 }

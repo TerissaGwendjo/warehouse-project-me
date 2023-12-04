@@ -1,7 +1,5 @@
 package stock;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Item {
@@ -47,8 +45,8 @@ public class Item {
         return dateOfStock;
     }
 
-    public void setDateOfStock(String dateOfStock) {
-        this.dateOfStock = dateOfStock;
+    public void setDateOfStock(Date dateOfStock) {
+        this.dateOfStock = String.valueOf(dateOfStock);
     }
 
     @Override
