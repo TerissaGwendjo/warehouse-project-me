@@ -37,7 +37,7 @@ public class Main1 {
         List<Item> stockItems2 = new ArrayList<>();
         stockItems2.add(item3);
         stockItems2.add(item4);
-//System.out.println(stockItems2);
+        //System.out.println(stockItems2);
 
         List<Item> stockItems3 = new ArrayList<>();
         stockItems3.add(item5);
@@ -52,7 +52,7 @@ public class Main1 {
         stockItems5.add(item10);
 
 
-//Create a Warehouse
+        //Create a Warehouse
         Warehouse warehouse1 = new Warehouse(1, stockItems1);
         Warehouse warehouse2 = new Warehouse(2, stockItems2);
         Warehouse warehouse3 = new Warehouse(3, stockItems3);
@@ -66,15 +66,13 @@ public class Main1 {
         warehouseList.add(warehouse3);
         warehouseList.add(warehouse4);
         warehouseList.add(warehouse5);
+        //System.out.println(warehouseList);
 
         Scanner scanner = new Scanner(System.in);
         // Create sample Users
         Employee employee = new Employee("Terissa", true, "queent123", Collections.emptyList());
-        Employee employee1 = new Employee("Derick", false, "der123", Collections.emptyList());
-        User user = new User("Reine","reine123");
-        User user1 = new User("Jboy", "j123");
-        List<User>users = new ArrayList<>();
 
+        User user = new User("Reine","reine123");
 
         // Simulating User interaction:
         System.out.println();
@@ -85,7 +83,7 @@ public class Main1 {
         System.out.println("Enter your password:");
         String password = scanner.next();
 
-        User currentUser = authenticateUser(username, password, employee, user);
+        User currentUser = authenticateUser(username, password, employee, (User) user);
 
         if (currentUser != null) {
             if (currentUser instanceof Employee) {
@@ -94,7 +92,7 @@ public class Main1 {
                 handleEmployeeActions(currentEmployee, warehouseList);
             } else if (currentUser == user) {
                 // Guest actions
-                handleGuestActions(user, warehouseList);
+                handleGuestActions((User) user, warehouseList);
             }
         } else {
             System.out.println("Invalid credentials. Exiting.");
