@@ -70,7 +70,7 @@ public class Main {
                 // Create sample Users
                 Employee employee = new Employee("terissa", true, "teri123", Collections.emptyList());
                 Employee employee1 = new Employee("derick", false, "der123", Collections.emptyList());
-                User user = new User("reine",false);
+                User user = new User("reine","reine123");
 
                 // Simulating User interaction:
                 System.out.println("WELCOME TO THE WAREHOUSE APPLICATION!");

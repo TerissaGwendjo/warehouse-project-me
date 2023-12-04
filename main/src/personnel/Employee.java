@@ -9,7 +9,7 @@ public class Employee extends User {
 
     //Constructor
     public Employee(String user_name, boolean isAuthenticated, String password, List<Employee> headOf) {
-        super(user_name, isAuthenticated); //calls the constructor of the parent class
+        super(user_name, password); //calls the constructor of the parent class
         this.password = password;
         this.headOf = (headOf != null) ? headOf : List.of();
         //If headOf is not null, this.headOf is assigned the value of headOf.

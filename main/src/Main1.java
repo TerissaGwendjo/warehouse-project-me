@@ -69,13 +69,17 @@ public class Main1 {
 
         Scanner scanner = new Scanner(System.in);
         // Create sample Users
-        Employee employee = new Employee("terissa", true, "teri123", Collections.emptyList());
-        Employee employee1 = new Employee("derick", false, "der123", Collections.emptyList());
-        User user = new User("reine",false);
+        Employee employee = new Employee("Terissa", true, "queent123", Collections.emptyList());
+        Employee employee1 = new Employee("Derick", false, "der123", Collections.emptyList());
+        User user = new User("Reine","reine123");
+        User user1 = new User("Jboy", "j123");
+        List<User>users = new ArrayList<>();
 
 
         // Simulating User interaction:
+        System.out.println();
         System.out.println("WELCOME TO THE WAREHOUSE APPLICATION!");
+        System.out.println();
         System.out.println("Enter your username:");
         String username = scanner.next();
         System.out.println("Enter your password:");
@@ -100,12 +104,13 @@ public class Main1 {
     }
 
     private static void handleEmployeeActions(Employee employee, List<Warehouse> warehouseList) {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. View Items");
             System.out.println("2. Add Items");
             System.out.println("3. Remove Item");
             System.out.println("4. Exit");
-            System.out.println("Hello " + employee.getUser_name() + ". Please enter your Choice: ");
+            System.out.println("Hello " + employee.getUser_name() + ". You are an Employee. Please enter your Choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
@@ -116,14 +121,14 @@ public class Main1 {
                     break;
                 case 2:
                     // Call the addItem method with an instance of Warehouse
-                    addItem(scanner, warehouseList.get(0)); // Modify this according to your actual logic
+                    addItem(scanner, warehouseList.get(0));
                     break;
                 case 3:
                     // Call the removeItem method with an instance of Warehouse
-                    removeItem(scanner, warehouseList.get(0)); // Modify this according to your actual logic
+                    removeItem(scanner, warehouseList); // Modify this according to your actual logic
                     break;
                 case 4:
-                    System.out.println("Thank you for using the Warehouse Database");
+                    System.out.println("Logging out... "+ employee.getUser_name() + " Thank you for using the Warehouse Database");
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -132,10 +137,11 @@ public class Main1 {
     }
 
     private static void handleGuestActions(User user, List<Warehouse> warehouseList) {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. View Items");
             System.out.println("2. Exit");
-            System.out.println("Hello " + user.getUser_name() + ". Enter your Choice: ");
+            System.out.println("Hello " + user.getUser_name() + ". You are logged in as a Guest and can only view items. Please enter your Choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
@@ -168,11 +174,40 @@ public class Main1 {
     // Existing methods...
 
     private static void addItem(Scanner scanner, Warehouse warehouse) {
-        // Existing code...
+        System.out.print("Enter item name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter item state (Used or New): ");
+        String state = scanner.nextLine();
+
+        System.out.print("Enter item category: ");
+        String category = scanner.nextLine();
+
+        System.out.print("Enter date of stock (e.g., 2023-01-06 00:00:00): ");
+        String dateOfStockString = scanner.nextLine();
+
+        System.out.print("Enter warehouse number (1 to 5): ");
+        int warehouseId = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        // Create a new Item object
+        Item newItem = new Item(state, category, dateOfStockString, warehouseId);
+
+        // Add the new item to the warehouse
+        warehouse.addItem(newItem);
+
+        System.out.println("Item added successfully!");
+        System.out.println(newItem);
     }
 
-    private static void removeItem(Scanner scanner, Warehouse warehouse) {
-        // Existing code...
+    private static void removeItem(Scanner scanner, List<Warehouse>warehouseList) {
+        System.out.print("Enter the category of items to remove: ");
+        String category = scanner.nextLine();
+
+        for (Warehouse warehouse : warehouseList) {
+            String resultMessage = warehouse.removeItemByCategory(category);
+            System.out.println("Warehouse " + warehouse.getWarehouseId() + ": " + resultMessage);
+        }
     }
 }
 

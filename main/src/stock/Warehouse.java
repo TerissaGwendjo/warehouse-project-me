@@ -1,6 +1,7 @@
 package stock;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Warehouse {
@@ -38,6 +39,24 @@ public class Warehouse {
 
         return stringBuilder.toString();
     }
+
+    public String removeItemByCategory(String category) {
+        Iterator<Item> iterator = stock.iterator();
+
+        boolean itemRemoved = false;
+
+        while (iterator.hasNext()) {
+            Item item = iterator.next();
+            if (item.getCategory().equals(category)) {
+                iterator.remove();
+                itemRemoved = true;
+            }
+        }
+
+        return itemRemoved ? "Items of category " + category + " removed successfully!" :
+                "No items found in category " + category + ". No changes were made.";
+    }
+
 
    /* public void Warehouse (int warehouseId) {
         stock.get(getId());
@@ -79,8 +98,6 @@ public class Warehouse {
             System.out.println("--------------------------------------------------------------");
         }
     }
-
-
 
 
 }
