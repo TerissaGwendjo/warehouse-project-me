@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import static stock.Warehouse.printWarehouseDetails;
 
-public class Main1 {
+public class Main {
     public static void main(String[] args) {
 
         // Create sample items in the Warehouse
@@ -70,7 +70,7 @@ public class Main1 {
 
         Scanner scanner = new Scanner(System.in);
         // Create sample Users
-        Employee employee = new Employee("Terissa", true, "queent123", Collections.emptyList());
+        Employee employee = new Employee("Terissa", true, "teri123", Collections.emptyList());
 
         User user = new User("Reine","reine123");
 
@@ -95,7 +95,7 @@ public class Main1 {
                 handleGuestActions((User) user, warehouseList);
             }
         } else {
-            System.out.println("Invalid credentials. Exiting.");
+            System.out.println("Invalid credentials. Exiting...");
         }
 
         scanner.close();
@@ -104,11 +104,13 @@ public class Main1 {
     private static void handleEmployeeActions(Employee employee, List<Warehouse> warehouseList) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            System.out.println("Hello " + employee.getUser_name() + ". You are an Employee. Please enter your Choice: ");
+            System.out.println();
             System.out.println("1. View Items");
             System.out.println("2. Add Items");
             System.out.println("3. Remove Item");
             System.out.println("4. Exit");
-            System.out.println("Hello " + employee.getUser_name() + ". You are an Employee. Please enter your Choice: ");
+
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
@@ -126,7 +128,7 @@ public class Main1 {
                     removeItem(scanner, warehouseList); // Modify this according to your actual logic
                     break;
                 case 4:
-                    System.out.println("Logging out... "+ employee.getUser_name() + " Thank you for using the Warehouse Database");
+                    System.out.println("Logging out... "+ employee.getUser_name() + " Thank you for using the Warehouse Database. SEE YOU SOON!");
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -137,9 +139,11 @@ public class Main1 {
     private static void handleGuestActions(User user, List<Warehouse> warehouseList) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            System.out.println("Hello " + user.getUser_name() + ". You are logged in as a Guest and can only view items. Please enter your Choice: ");
+            System.out.println();
             System.out.println("1. View Items");
             System.out.println("2. Exit");
-            System.out.println("Hello " + user.getUser_name() + ". You are logged in as a Guest and can only view items. Please enter your Choice: ");
+
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
@@ -149,7 +153,7 @@ public class Main1 {
                     printWarehouseDetails(warehouseList);
                     break;
                 case 2:
-                    System.out.println("Thank you for using the Warehouse Database");
+                    System.out.println( "Goodbye "+ user.getUser_name() + " Thank you for using the Warehouse Database");
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -164,7 +168,7 @@ public class Main1 {
         } else if (user.getUser_name().equals(username) && user.getPassword().equals(password)) {
             return user;
         } else {
-            System.out.println("Invalid credentials. Please try again.");
+            System.out.println("Invalid Username or Password. Please try again.");
             return null;
         }
     }
