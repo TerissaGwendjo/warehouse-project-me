@@ -1,7 +1,5 @@
 package personnel;
 
-import java.util.List;
-
 public class User {
     protected String user_name;
     private String password;
@@ -38,27 +36,6 @@ public class User {
     public boolean authenticate (String password) {
         // Placeholder method, always returns false for a standard user
         return false;
-    }
-
-    public boolean isNamed (String checkName) {
-        // Checks if the provided name equals the user's name.
-        return this.user_name.equals(checkName);
-    }
-
-    public void order (String item, int amount) {
-        System.out.println("Order placed: Item = " + item + ", Amount = " + amount);
-    }
-
-    public void greet() {
-        System.out.println("Hello, " + user_name + "!");
-        System.out.println("Welcome to our Warehouse Database.");
-        System.out.println("If you don't find what you are looking for,");
-        System.out.println("please ask one of our staff members to assist you.");
-    }
-
-    public void bye (List<String> actions) {
-        // For a Standard User, print out a thank you message
-        System.out.println("Thank you for using the Warehouse Database");
     }
 
 }

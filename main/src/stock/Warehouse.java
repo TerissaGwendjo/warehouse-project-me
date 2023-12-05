@@ -43,7 +43,7 @@ public class Warehouse {
     public String removeItemByCategory(String category) {
         Iterator<Item> iterator = stock.iterator();
 
-        boolean itemRemoved = false;
+        boolean itemRemoved = false; // itemRemoved is initialized to false at the beginning of the method cuz at the beginning no items are removed yet
 
         while (iterator.hasNext()) {
             Item item = iterator.next();

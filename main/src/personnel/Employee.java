@@ -44,23 +44,4 @@ public class Employee extends User {
         return this.password.equals(password);
     }
 
-
-    @Override
-    public void greet() {
-        //super.greet(); // this is a way of calling the parent class to take an action but we want something else
-        System.out.println("Hello, " + getUser_name() + "!");
-        System.out.println("If you experience a problem with the system,");
-        System.out.println("please contact technical support.");
-    }
-
-    @Override
-    public void bye(List<String> actions) {
-        super.bye(actions); //call the parent class to print the standard "thank you" message
-
-        //Print the summary of actions taken during the session
-        System.out.println("Summary of Actions:");
-        for (String action:actions) {
-            System.out.println(action);
-        }
-    }
 }
